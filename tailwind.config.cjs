@@ -1,6 +1,6 @@
 /** @type {import('tailwindcss').Config} */
 module.exports = {
-  mode: "jit",
+  // mode: "jit",
   content: ["./src/**/*.{html,js,jsx,ts,tsx}"],
   theme: {
     extend: {
@@ -17,10 +17,22 @@ module.exports = {
       spacing: {
         'home-padding': '3.6rem',
         '40-rem': '40rem',
-      }
+      },
+      typography: {
+        DEFAULT: {
+          css: {
+            'font-size':
+              'clamp(1.125rem, calc(1.125rem + ((1.25 - 1.125) * ((100vw - 20rem) / (96 - 20)))), 1.25rem)',
+          },
+        },
+      },
     },
   },
-  plugins: [require("@tailwindcss/typography")],
+  corePlugins: {
+    fontSize: false,
+},
+  plugins: [
+    require("@tailwindcss/typography"),
+    require("tailwindcss-fluid-type"),
+  ],
 };
-
-// calc(20px + (72px - 20px) * ((100vw - 640px) / (1536px - 640px)));
