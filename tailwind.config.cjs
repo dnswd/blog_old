@@ -7,6 +7,9 @@ module.exports = {
       rotate: {
         '135': '135deg'
       },
+      backgroundColor: {
+        "dark-canvas": "#161815"
+      },
       transformOrigin: {
         'top-left-5-95': '5% 95%',
       },
