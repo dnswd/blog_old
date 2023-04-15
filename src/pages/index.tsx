@@ -24,8 +24,8 @@ export default function Home() {
         </div>
       </nav>
       <main className="h-screen">
-        <div className="absolute left-0 top-0 w-full">
-          <header className="relative my-40 sm:my-80 mx-auto w-screen-65">
+        <div className="absolute overflow-hidden left-0 top-0 w-full">
+          <header className="relative my-40 sm:my-4/16 xl:my-2/16 mx-auto w-screen-65">
             <div className="w-screen-50">
               <p className="text-5xl sm:text-7xl">
                 I’m Thieb — a Multidisciplinary Designer with a focus on Motion, Interactive Design and 3D.
@@ -59,6 +59,7 @@ export default function Home() {
               </article>
             </div>
           </section>
+          <div className="grain"></div>
         </div>
       </main>
     </div>

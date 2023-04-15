@@ -3,3 +3,17 @@
 @tailwind utilities;
 
 @import url("https://cdn.jsdelivr.net/npm/katex@0.16.0/dist/katex.min.css");
+
+.grain {
+  background: url("/grain.png") 0 0/150px auto;
+  display: block;
+  height: 100%;
+  left: 0;
+  pointer-events: none;
+  position: absolute;
+  top: 0;
+  -webkit-transform: translateZ(0);
+  transform: translateZ(0);
+  width: 100%;
+  z-index: 1;
+}
