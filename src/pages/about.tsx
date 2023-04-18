@@ -1,13 +1,13 @@
 import NavBar from "@/components/NavBar";
 
-export default function Home() {
+export default function About() {
   return (
     <div className="relative text-rose-50">
       <NavBar />
       <main className="h-screen">
         <div className="absolute top-0 left-0 w-full overflow-hidden bg-dark-canvas">
           <header className="relative mx-auto my-40 sm:my-4/16 xl:my-2/16 w-screen-65">
-            <div className="w-screen-50">
+            <div className="w-\screen-50">
               <p className="text-5xl sm:text-7xl">
                 I’m Thieb — a Multidisciplinary Designer with a focus on Motion,
                 Interactive Design and 3D.

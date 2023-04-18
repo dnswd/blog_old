@@ -1,159 +1,35 @@
-import Head from "next/head";
-import Image from "next/image";
-import { Inter } from "next/font/google";
-import styles from "@/styles/Home.module.css";
+import NavBar from "@/components/NavBar";
 
-const inter = Inter({ subsets: ["latin"] });
 
-export default function Home() {
+
+export default function Blog() {
   return (
-    <div>
-      <header className="py-8">
-        <h1 className="text-center text-6xl m-6">Dennis Walangadi</h1>
-
-        <nav>
-          <ul className="flex flex-row justify-center align-center gap-8">
-            <li>About</li>
-            <li>Archive</li>
-            <li>Series</li>
-            <li>Source Code</li>
-            <li>Kambing</li>
-          </ul>
-        </nav>
-      </header>
-      <main className="max-w-screen-md m-auto p-6">
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
-        </div>
-        <div className="relative pb-7">
-          <span className="absolute -left-14 top-1 text-right slashed-zero lining-nums tabular-num">
-            01/01
-            <br />
-            2023
-          </span>
-          <div className="font-bold text-2xl pb-2">
-            Title Lorem ipsum dolor sit amet consectetur adipisicing elit. Unde
-            harum neque modi odit, sit sapiente voluptatum quo nihil sed,
-            deleniti quasi placeat! Nam architecto quam, libero illum esse
-            repudiandae dignissimos.
-          </div>
-          <span className="text-ellipsis">
-            Lorem ipsum dolor sit amet consectetur, adipisicing elit. Corrupti
-            dicta odio cumque laboriosam! Adipisci maxime corrupti eos cum
-            officia. Soluta corporis et repellendus corrupti, quod tenetur rem
-            accusamus nostrum eius.
-          </span>
+    <div className="relative text-rose-50">
+      <NavBar />
+      <main className="h-screen">
+        <div className="absolute top-0 left-0 w-full overflow-hidden bg-dark-canvas">
+          <header className="relative mx-auto mt-40 mb-16 sm:mt-4/16 xl:mt-2/16 w-screen-65">
+            <div className="w-screen-50">
+              <p className="text-5xl font-semibold sm:text-3xl">
+                Things I wrote. Caution, might be hazardous.
+              </p>
+            </div>
+          </header>
+          <section className="flex flex-col justify-between gap-16 mx-auto mb-96 sm:mb-40-rem w-screen-65 sm:gap-10">
+          <div>
+              <p className="sm:text-lg">Event-driven Trading with Websockets, Scala, and Apache Mahout</p>
+              <p><span>29 May 2021</span></p>
+            </div>
+            <div>
+              <p className="sm:text-lg">Implementing BI SNAP Payment Gateway using Elixir and PostgreSQL</p>
+              <p><span>29 May 2021</span> — <span>DIY Fintech Startup Series</span></p>
+            </div>
+            <div>
+              <p className="sm:text-lg">Zapdive: GPT-powered tool to assist your research</p>
+              <p><span>29 May 2021</span></p>
+            </div>
+          </section>
+          <div className="grain"></div>
         </div>
       </main>
     </div>
