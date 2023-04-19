@@ -2,8 +2,9 @@ import { serialize } from "next-mdx-remote/serialize";
 import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
 import { components } from "@components/MdxComponents";
 import { MDXProvider } from "@mdx-js/react";
-import remarkMath from 'remark-math'
-import rehypeKatex from 'rehype-katex'
+import remarkMath from "remark-math";
+import rehypeKatex from "rehype-katex";
+import NavBar from "@/components/NavBar";
 
 interface Props {
   source: MDXRemoteSerializeResult;
@@ -13,17 +14,32 @@ const serializeOption = {
   mdxOptions: {
     remarkPlugins: [remarkMath],
     rehypePlugins: [rehypeKatex],
-  }
-}
+  },
+};
 
 export default function PostsLayout({ source }: Props) {
   return (
-    <div className="max-w-screen-md m-auto p-6">
-      <MDXProvider components={components}>
-        <article className="prose">
-          <MDXRemote {...source} />
-        </article>
-      </MDXProvider>
+    <div className="relative text-rose-50">
+      <NavBar />
+      <main className="h-screen">
+        <div className="absolute top-0 left-0 w-full overflow-hidden bg-dark-canvas">
+          <header className="relative mx-auto mt-40 mb-16 sm:mt-4/16 xl:mt-2/16 w-screen-65">
+            <div className="w-screen-50">
+              <p className="text-5xl font-semibold sm:text-3xl">
+                Things I wrote. Caution, might be hazardous.
+              </p>
+            </div>
+          </header>
+          <section className="flex flex-col justify-between gap-16 mx-auto mb-96 sm:mb-40-rem w-screen-65 sm:gap-10">
+            <MDXProvider components={components}>
+              <article className="prose prose-rose lg:prose-xl prose-a:decoration-2">
+                <MDXRemote {...source} />
+              </article>
+            </MDXProvider>
+          </section>
+          <div className="grain"></div>
+        </div>
+      </main>
     </div>
   );
 }

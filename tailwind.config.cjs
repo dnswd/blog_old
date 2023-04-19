@@ -64,14 +64,28 @@ module.exports = {
         '14/16': '87.5%',
         '15/16': '93.75%'
       },
-      typography: {
-        DEFAULT: {
+      typography: ({ theme }) => ({
+        rose: {
           css: {
-            'font-size':
-              'clamp(1.125rem, calc(1.125rem + ((1.25 - 1.125) * ((100vw - 20rem) / (96 - 20)))), 1.25rem)',
+            '--tw-prose-body': theme('colors.rose[100]'),
+            '--tw-prose-headings': theme('colors.rose[50]'),
+            '--tw-prose-lead': theme('colors.rose[300]'),
+            '--tw-prose-links': theme('colors.cyan[300]'),
+            '--tw-prose-bold': theme('colors.rose[50]'),
+            '--tw-prose-counters': theme('colors.rose[50]'),
+            '--tw-prose-bullets': theme('colors.rose[50]'),
+            '--tw-prose-hr': theme('colors.rose[50]'),
+            '--tw-prose-quotes': theme('colors.zinc[300]'),
+            '--tw-prose-quote-borders': theme('colors.zinc[300]'),
+            '--tw-prose-captions': theme('colors.rose[400]'),
+            '--tw-prose-code': theme('colors.rose[100]'),
+            '--tw-prose-pre-code': theme('colors.rose[100]'),
+            '--tw-prose-pre-bg': 'rgb(0 0 0 / 50%)',
+            '--tw-prose-th-borders': theme('colors.rose[600]'),
+            '--tw-prose-td-borders': theme('colors.rose[700]'),
           },
         },
-      },
+      }),
     },
   },
   corePlugins: {
