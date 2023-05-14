@@ -9,7 +9,7 @@ export default function About() {
           <header className="relative mx-auto my-40 sm:my-4/16 xl:my-2/16 w-screen-65">
             <div className="w-\screen-50">
               <p className="text-5xl sm:text-7xl">
-                I’m Thieb — a Multidisciplinary Designer with a focus on Motion,
+                I’m Dennis — a Multidisciplinary Designer with a focus on Motion,
                 Interactive Design and 3D.
               </p>
             </div>

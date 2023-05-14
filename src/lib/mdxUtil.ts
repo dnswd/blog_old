@@ -1,5 +1,6 @@
 import fs from "fs";
 import path from "path";
+import matter from 'gray-matter'
 import { bundleMDX } from "mdx-bundler";
 // remark plugins
 import remarkMath from "remark-math";
@@ -10,11 +11,26 @@ import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT = process.cwd()
 
-export function getContentsSlugs(): string[] {
+export function getContentSlugs(): string[] {
   const contentPath = path.join(ROOT, "content");
-  const filePaths = fs.readdirSync(contentPath);
-  const paths = filePaths.map((p) => p.replace(/(.mdx)/, ""));
+  const fileName = fs.readdirSync(contentPath);
+  const paths = fileName.map((p) => p.replace(/(.mdx)/, ""));
   return paths
+}
+
+export function getAllContentFrontmatter() {
+  const contentPath = path.join(ROOT, "content");
+  const fileName = fs.readdirSync(contentPath);
+  const matters = fileName.map((p) => {
+    const content = fs.readFileSync(path.join(ROOT, "content", p), 'utf-8')
+    const { data: frontmatter } = matter(content)
+    return {
+      ...frontmatter,
+      slug: p.replace(/(.mdx)/, '')
+    }
+  })
+  
+  return matters
 }
 
 export async function compileMdxContent(slug: string) {
