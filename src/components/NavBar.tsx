@@ -4,7 +4,7 @@ export default function NavBar() {
   return (
     <nav className="fixed z-10 w-full pt-home-padding">
       <div className="flex justify-between m-auto w-screen-65">
-        <Link href="/">dnswd.id</Link>
+        <Link href="/">halcyon.id</Link>
         <ul className="flex-row hidden sm:flex sm:gap-16">
           <li>
             <Link href="/blog">blog</Link>
@@ -16,7 +16,7 @@ export default function NavBar() {
             <Link href="/about">about</Link>
           </li>
         </ul>
-        <Link href="mailto:hello@dnswd.id">hello@dnswd.id</Link>
+        <Link href="mailto:hello@halcyon.id">hello@halcyon.id</Link>
       </div>
     </nav>
   );
