@@ -11,18 +11,18 @@ import rehypePrismPlus from 'rehype-prism-plus'
 
 const ROOT = process.cwd()
 
-export function getContentSlugs(): string[] {
-  const contentPath = path.join(ROOT, "content");
+export function getContentSlugs(folder: string): string[] {
+  const contentPath = path.join(ROOT, folder);
   const fileName = fs.readdirSync(contentPath);
   const paths = fileName.map((p) => p.replace(/(.mdx)/, ""));
   return paths
 }
 
-export function getAllContentFrontmatter() {
-  const contentPath = path.join(ROOT, "content");
+export function getAllContentFrontmatter(folder: string) {
+  const contentPath = path.join(ROOT, folder);
   const fileName = fs.readdirSync(contentPath);
   const matters = fileName.map((p) => {
-    const content = fs.readFileSync(path.join(ROOT, "content", p), 'utf-8')
+    const content = fs.readFileSync(path.join(ROOT, folder, p), 'utf-8')
     const { data: frontmatter } = matter(content)
     return {
       ...frontmatter,
@@ -33,7 +33,7 @@ export function getAllContentFrontmatter() {
   return matters
 }
 
-export async function compileMdxContent(slug: string) {
+export async function compileMdxContent(folder: string, slug: string) {
   if (process.platform === "win32") {
     process.env.ESBUILD_BINARY_PATH = path.join(
       ROOT,
@@ -51,7 +51,7 @@ export async function compileMdxContent(slug: string) {
     );
   }
 
-  const fullPath = path.join(ROOT, "content", `${slug}.mdx`);
+  const fullPath = path.join(ROOT, folder, `${slug}.mdx`);
 
   const { code, frontmatter } = await bundleMDX({
     file: fullPath,

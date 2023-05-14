@@ -35,7 +35,7 @@ export default function PostsLayout({ code, frontmatter }: PostLayoutProps) {
 }
 
 export async function getStaticPaths() {
-  const slugs = getContentSlugs("content");
+  const slugs = getContentSlugs("project");
   const paths = slugs.map((contentSlug: string) => ({
     params: {
       slug: contentSlug,
@@ -51,7 +51,7 @@ export async function getStaticPaths() {
 export async function getStaticProps(
   ctx: GetStaticPropsContext<{ slug: string }>
 ) {
-  const { code, frontmatter } = await compileMdxContent("content", ctx.params!.slug);
+  const { code, frontmatter } = await compileMdxContent("project", ctx.params!.slug);
 
   return { props: { code, frontmatter } };
 }

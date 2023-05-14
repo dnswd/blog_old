@@ -19,7 +19,7 @@ export default function Blog({ matters }: BlogProps) {
           <header className="relative mx-auto mt-40 mb-16 sm:mt-4/16 xl:mt-2/16 w-screen-65">
             <div className="w-screen-50">
               <p className="text-5xl font-semibold sm:text-3xl">
-                I write stuffs about tech and daily discoveries.
+                Projects I built as a hobby, assignment, contribution, or just plain curiosity.
               </p>
             </div>
           </header>
@@ -51,6 +51,6 @@ export default function Blog({ matters }: BlogProps) {
 }
 
 export async function getStaticProps() {
-  const matters = getAllContentFrontmatter("content");
+  const matters = getAllContentFrontmatter("project");
   return { props: { matters } };
 }
