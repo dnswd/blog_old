@@ -16,7 +16,7 @@ export default function NavBar() {
             <Link href="/about">about</Link>
           </li>
         </ul>
-        <Link href="mailto:hello@halcyon.id">hello@halcyon.id</Link>
+        <Link href="mailto:dennis@halcyon.id">dennis@halcyon.id</Link>
       </div>
     </nav>
   );
