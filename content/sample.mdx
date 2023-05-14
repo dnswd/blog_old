@@ -1,62 +1,6 @@
-import { serialize } from "next-mdx-remote/serialize";
-import { MDXRemote, MDXRemoteSerializeResult } from "next-mdx-remote";
-import { components } from "@components/MdxComponents";
-import { MDXProvider } from "@mdx-js/react";
-import remarkMath from "remark-math";
-import rehypeKatex from "rehype-katex";
-import remarkGfm from "remark-gfm";
-import NavBar from "@/components/NavBar";
-import '@/styles/PostLayout.module.css'
-
-interface Props {
-  source: MDXRemoteSerializeResult<{
-    title: string;
-    publishedDate: string;
-}, Record<string, unknown>>;
-}
-
-const serializeOption = {
-  mdxOptions: {
-    remarkPlugins: [remarkMath, remarkGfm],
-    rehypePlugins: [rehypeKatex],
-  },
-  parseFrontmatter: true
-};
-
-export default function PostsLayout({ source }: Props) {
-  
-  return (
-    <div className="relative text-rose-50">
-      <NavBar />
-      <main className="h-screen">
-        <div className="absolute top-0 left-0 w-full overflow-hidden bg-dark-canvas">
-          <header className="relative mx-auto mt-40 mb-16 sm:mt-4/16 xl:mt-2/16 w-screen-65">
-            <div className="prose prose-rose lg:prose-xl w-screen-50">
-              <span className="italic mb-4">{source.frontmatter.publishedDate}</span>
-              <h1 className="">
-                {source.frontmatter.title}
-              </h1>
-            </div>
-          </header>
-          <section className="flex flex-col justify-between gap-16 mx-auto mb-96 sm:mb-40-rem w-screen-65 sm:gap-10">
-            <MDXProvider components={components}>
-              <article className="prose prose-rose lg:prose-xl prose-a:decoration-2">
-                <MDXRemote {...source} lazy />
-              </article>
-            </MDXProvider>
-          </section>
-          <div className="grain"></div>
-        </div>
-      </main>
-    </div>
-  );
-}
-
-export async function getStaticProps() {
-  // MDX text - can be from a local file, database, anywhere
-  const source = `---
+---
 title: Abrakadabra
-publishDate: March 9th 2021
+publishedDate: March 9th 2021
 ---
 
 This is a markdown demo. Below are heading examples.
@@ -274,12 +218,12 @@ Below with code blocks
 1. Open the file.
 2. Find the following code block on line 21:
     
-    \`\`\`
+    ```
         <html>
           <head>
             <title>Test</title>
           </head>
-    \`\`\`
+    ```
 
 3. Update the title to match the name of your website.
 
@@ -313,32 +257,36 @@ Task lists TODO
 
 Inline codes
 
-At the command prompt, type \`nano\`.
+At the command prompt, type `nano`.
 
-\`\`Use \`code\` in your Markdown file.\`\`
+``Use `code` in your Markdown file.``
 
 
 
 Code blocks
 
-\`\`\`
+```
 <html>
   <head>
     <title>Test</title>
   </head>
-\`\`\`
+```
 
 With syntax highlighting TODO
 
-\`\`\`json
+```json
 {
   "firstName": "John",
   "lastName": "Smith",
   "age": 25
 }
-\`\`\`
+```
 
+With title TODO
 
+```js:hello.js
+console.log('js')
+```
 
 Horizontal rules
 
@@ -367,7 +315,7 @@ With formatting
 
 I love supporting the **[EFF](https://eff.org)**.
 This is the *[Markdown Guide](https://www.markdownguide.org)*.
-See the section on [\`code\`](#code).
+See the section on [`code`](#code).
 
 Reference style
 
@@ -408,8 +356,8 @@ With alignment
 
 | Name | Type | Description |
 | ---- | ---- | ----------- |
-| \`name\` | string | Name of the resource |
-| \`path\` | string | Path to the resource |
+| `name` | string | Name of the resource |
+| `path` | string | Path to the resource |
 
 
 Footnotes TODO
@@ -422,7 +370,7 @@ Here's a simple footnote,[^1] and here's a longer one.[^bignote]
 
     Indent paragraphs to include them in the footnote.
 
-    \`{ my code }\`
+    `{ my code }`
 
     Add as many paragraphs as you like.
 
@@ -467,15 +415,10 @@ X^2^
 
 Math TODO
 
-$\\sqrt\{a^2 + b^2\}$
+$\sqrt{a^2 + b^2}$
 
 Math block
 
 $$
-L = \\frac{1}{2} \\rho v^2 S C_L
+L = \frac{1}{2} \rho v^2 S C_L
 $$
-
-`;
-  const mdxSource = await serialize<{title: string, publishedDate: string}>(source, serializeOption);
-  return { props: { source: mdxSource } };
-}
